@@ -2,6 +2,8 @@ package com.joysistvi.recordingapp.database;
 
 import com.joysistvi.recordingapp.config.DatabaseConfig;
 import com.joysistvi.recordingapp.config.PropertiesConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +13,7 @@ import java.sql.Statement;
 public class DatabaseBootstrap {
 
     private final DatabaseConfig config;
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseBootstrap.class);
 
     public DatabaseBootstrap() {
         PropertiesConfig properties = new PropertiesConfig();
@@ -22,31 +25,20 @@ public class DatabaseBootstrap {
         String databaseName = getDatabaseName();
         String serverUrl = getServerUrl();
 
-        String sql = "CREATE DATABASE IF NOT EXISTS `" + databaseName + "` "
-                + "DEFAULT CHARACTER SET utf8mb4 "
-                + "COLLATE utf8mb4_0900_ai_ci";
+        String sql = "CREATE DATABASE IF NOT EXISTS `" + databaseName + "` " + "DEFAULT CHARACTER SET utf8mb4 " + "COLLATE utf8mb4_0900_ai_ci";
 
-        try (Connection connection = DriverManager.getConnection(
-                serverUrl,
-                config.username(),
-                config.password()
-        )) {
+        try (Connection connection = DriverManager.getConnection(serverUrl, config.username(), config.password())) {
 
             try (Statement statement = connection.createStatement()) {
 
                 statement.executeUpdate(sql);
 
-                System.out.println(
-                        "Database '" + databaseName + "' is ready."
-                );
+                logger.info("Database '" + databaseName + "' is ready.");
             }
 
         } catch (SQLException e) {
 
-            throw new RuntimeException(
-                    "Failed to create database '" + databaseName + "'.",
-                    e
-            );
+            logger.error("Failed to create database '" + databaseName + "'.", e);
         }
     }
 
@@ -59,9 +51,7 @@ public class DatabaseBootstrap {
         int lastSlash = withoutParams.lastIndexOf('/');
 
         if (lastSlash == -1 || lastSlash == withoutParams.length() - 1) {
-            throw new IllegalStateException(
-                    "Invalid database URL: " + url
-            );
+            logger.error("Invalid database URL: " + url);
         }
 
         return withoutParams.substring(lastSlash + 1);
@@ -76,9 +66,7 @@ public class DatabaseBootstrap {
         int lastSlash = withoutParams.lastIndexOf('/');
 
         if (lastSlash == -1) {
-            throw new IllegalStateException(
-                    "Invalid database URL: " + url
-            );
+            logger.error("Invalid database URL: " + url);
         }
 
         return withoutParams.substring(0, lastSlash);

@@ -16,4 +16,12 @@ public interface IArtistService {
     boolean updateArtistById(Artist artist);
 
     boolean deleteArtistById(int id);
+
+    List<Artist> searchArtist(String key);
+
+    boolean archiveArtist(Integer id);
+
+    boolean restoreArtist(Integer id);
+
+    List<Artist> getAllArchivedArtists();
 }

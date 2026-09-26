@@ -1,8 +1,15 @@
 package com.joysistvi.recordingapp;
 
+import com.joysistvi.recordingapp.controller.ArtistController;
 import com.joysistvi.recordingapp.database.DatabaseBootstrap;
 import com.joysistvi.recordingapp.database.DatabaseConnection;
 import com.joysistvi.recordingapp.database.DatabaseMigration;
+import com.joysistvi.recordingapp.models.Artist;
+import com.joysistvi.recordingapp.repositories.ArtistRepository;
+import com.joysistvi.recordingapp.services.ArtistService;
+import com.joysistvi.recordingapp.views.Route;
+
+import java.util.Scanner;
 
 public class RecordingApplication {
 
@@ -16,7 +23,8 @@ public class RecordingApplication {
         migration.migrate();
         databaseConnection.testConnection();
 
-        // setup here screens for the recording app using switch statement
+        Route router = new Route();
+        router.start();
 
     }
 }

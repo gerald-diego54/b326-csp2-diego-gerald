@@ -3,10 +3,13 @@ package com.joysistvi.recordingapp.database;
 import com.joysistvi.recordingapp.config.DatabaseConfig;
 import com.joysistvi.recordingapp.config.PropertiesConfig;
 import org.flywaydb.core.Flyway;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DatabaseMigration {
 
     private final DatabaseConfig config;
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseMigration.class);
 
     public DatabaseMigration() {
         PropertiesConfig properties = new PropertiesConfig();
@@ -26,6 +29,6 @@ public class DatabaseMigration {
 
         flyway.migrate();
 
-        System.out.println("Database migration completed.");
+        logger.info("Database migration completed.");
     }
 }

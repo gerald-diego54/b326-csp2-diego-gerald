@@ -1,6 +1,9 @@
 package com.joysistvi.recordingapp.config;
 
+import com.joysistvi.recordingapp.repositories.ArtistRepository;
 import io.github.cdimascio.dotenv.Dotenv;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +12,8 @@ import java.util.Properties;
 public class PropertiesConfig {
 
     private final Properties properties = new Properties();
+    private static final Logger logger = LoggerFactory.getLogger(PropertiesConfig.class);
+
 
     private final Dotenv dotenv = Dotenv.configure() // .env configuration instance
             .ignoreIfMissing() // remove exception when .env is missing
@@ -23,13 +28,13 @@ public class PropertiesConfig {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("application.properties")) { // load the file application.properties
 
             if (input == null) {
-                throw new IllegalStateException("application.properties not found");
+                logger.error("application.properties not found");
             }
 
             properties.load(input);
 
         } catch (IOException e) {
-            throw new IllegalStateException("Unable to load application.properties");
+            logger.error("Unable to load application.properties");
         }
     }
 
@@ -38,7 +43,7 @@ public class PropertiesConfig {
         String value = properties.getProperty(key); // get the values by searching using key value
 
         if (value == null) {
-            throw new IllegalStateException("Missing configuration: " + key);
+            logger.error("Missing configuration: " + key);
         }
 
         return resolveEnvironmentVariable(value);
@@ -61,7 +66,7 @@ public class PropertiesConfig {
 
         if (environmentValue == null || environmentValue.isBlank()) {
 
-            throw new IllegalStateException("Missing environment variable: " + environmentVariable);
+            logger.error("Missing environment variable: " + environmentVariable);
         }
 
         return environmentValue;

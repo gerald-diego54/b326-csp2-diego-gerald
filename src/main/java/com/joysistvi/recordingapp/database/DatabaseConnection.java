@@ -2,6 +2,8 @@ package com.joysistvi.recordingapp.database;
 
 import com.joysistvi.recordingapp.config.DatabaseConfig;
 import com.joysistvi.recordingapp.config.PropertiesConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,6 +12,7 @@ import java.sql.SQLException;
 public class DatabaseConnection {
 
     private final DatabaseConfig config;
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseConnection.class);
 
     public DatabaseConnection() {
 
@@ -32,6 +35,7 @@ public class DatabaseConnection {
 
         } catch (SQLException e) {
 
+            logger.error(String.valueOf(e));
             return false;
         }
     }
@@ -42,18 +46,18 @@ public class DatabaseConnection {
 
             if (connection != null && !connection.isClosed()) {
 
-                System.out.println("Database connected successfully.");
+                logger.info("Database connected successfully.");
 
             } else {
 
-                System.err.println("Database connection failed.");
+                logger.error("Database connection failed.");
             }
 
         } catch (SQLException e) {
 
-            System.err.println("Database connection failed.");
+            logger.error("Database connection failed.");
 
-            System.err.println("Reason: " + e.getMessage());
+            logger.error("Reason: " + e.getMessage());
         }
     }
 }

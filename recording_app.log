@@ -1,0 +1,364 @@
+2026-09-25 13:19:23 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:19:23 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:19:23 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.038s)
+2026-09-25 13:19:23 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:19:23 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:19:44 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:19:44 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:19:44 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.035s)
+2026-09-25 13:19:44 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:19:44 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:20:02 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:20:02 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:20:02 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.033s)
+2026-09-25 13:20:02 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:20:02 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:21:40 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:21:40 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:21:40 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.034s)
+2026-09-25 13:21:40 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:21:40 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:21:57 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:21:57 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:21:57 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.026s)
+2026-09-25 13:21:57 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:21:57 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:22:54 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:22:54 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:22:54 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.027s)
+2026-09-25 13:22:54 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:22:54 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:22:54 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute query
+java.sql.SQLIntegrityConstraintViolationException: Column 'name' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
+	at com.joysistvi.recordingapp.repositories.ArtistRepository.save(ArtistRepository.java:57)
+	at com.joysistvi.recordingapp.services.ArtistService.saveArtist(ArtistService.java:30)
+	at com.joysistvi.recordingapp.controller.ArtistController.addArtist(ArtistController.java:26)
+	at com.joysistvi.recordingapp.RecordingApplication.main(RecordingApplication.java:31)
+2026-09-25 13:23:24 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:23:24 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:23:24 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.028s)
+2026-09-25 13:23:24 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:23:24 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:23:24 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:24:23 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:24:23 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:24:23 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.031s)
+2026-09-25 13:24:23 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:24:23 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:24:23 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:27:29 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:27:29 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:27:29 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.041s)
+2026-09-25 13:27:29 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:27:29 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:27:29 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:28:24 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:28:24 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:28:24 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:28:24 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.061s)
+2026-09-25 13:28:24 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:28:24 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:28:24 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:29:06 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:29:06 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:29:06 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:29:06 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.027s)
+2026-09-25 13:29:06 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:29:06 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:29:06 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:30:08 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:30:08 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:30:08 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:30:08 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.027s)
+2026-09-25 13:30:08 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:30:08 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:30:08 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:32:10 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:32:10 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:32:10 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:32:10 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.042s)
+2026-09-25 13:32:10 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:32:10 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:32:11 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 13:32:11 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:32:40 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:32:40 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:32:40 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:32:40 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.040s)
+2026-09-25 13:32:40 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:32:40 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:32:40 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 13:32:40 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 13:32:40 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute queryColumn 'name' cannot be null
+2026-09-25 13:33:35 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:33:35 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:33:35 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:33:35 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.039s)
+2026-09-25 13:33:35 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:33:35 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:33:35 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 13:33:35 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 13:45:36 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:45:36 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:45:36 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:45:36 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.039s)
+2026-09-25 13:45:36 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:45:36 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:45:36 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 13:45:36 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 13:45:44 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 13:45:44 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 13:45:44 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 13:45:44 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.028s)
+2026-09-25 13:45:44 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 13:45:44 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 13:45:44 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 13:45:44 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:00:27 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:00:27 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:00:27 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:00:27 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.028s)
+2026-09-25 14:00:27 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:00:27 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:00:27 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:00:27 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:00:50 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:00:50 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:00:50 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:00:50 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.028s)
+2026-09-25 14:00:50 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:00:50 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:00:50 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:00:50 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:10:53 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:10:53 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:10:53 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:10:53 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.040s)
+2026-09-25 14:10:54 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:10:54 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:10:54 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:10:54 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:11:15 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:11:15 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:11:15 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:11:15 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.028s)
+2026-09-25 14:11:15 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:11:15 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:11:15 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:11:15 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:30:54 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:30:54 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:30:54 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:30:54 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.044s)
+2026-09-25 14:30:54 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:30:54 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:30:54 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:30:54 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:48:04 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:48:04 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:48:04 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:48:04 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.038s)
+2026-09-25 14:48:04 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:48:04 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:48:04 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:48:04 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:48:48 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:48:48 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:48:48 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:48:48 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.036s)
+2026-09-25 14:48:48 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:48:48 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:48:48 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:48:48 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 14:49:35 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 14:49:36 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 14:49:36 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 14:49:36 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.038s)
+2026-09-25 14:49:36 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 14:49:36 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 14:49:36 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 14:49:36 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 15:00:28 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 15:00:29 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 15:00:29 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 15:00:29 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.030s)
+2026-09-25 15:00:29 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 15:00:29 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 15:00:29 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 15:00:29 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 15:06:00 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 15:06:00 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 15:06:00 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 15:06:00 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.038s)
+2026-09-25 15:06:00 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 15:06:00 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 15:06:00 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 15:06:00 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 15:08:44 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 15:08:45 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 15:08:45 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 15:08:45 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.050s)
+2026-09-25 15:08:45 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 15:08:45 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 15:08:45 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 15:08:45 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 16:00:54 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 16:00:54 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 16:00:54 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 16:00:54 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.028s)
+2026-09-25 16:00:54 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 16:00:54 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 16:00:54 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 16:00:54 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 16:02:06 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 16:02:06 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 16:02:07 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 16:02:07 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.030s)
+2026-09-25 16:02:07 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 16:02:07 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 16:02:07 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 16:02:07 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 16:04:09 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 16:04:09 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 16:04:09 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 16:04:09 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.044s)
+2026-09-25 16:04:09 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 16:04:09 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 16:04:09 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 16:04:09 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 16:04:24 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 16:04:24 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 16:04:24 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 16:04:24 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.027s)
+2026-09-25 16:04:24 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 16:04:24 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 16:04:24 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 16:04:24 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 16:07:03 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 16:07:03 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 16:07:03 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 16:07:03 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.029s)
+2026-09-25 16:07:03 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 16:07:03 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 16:07:03 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 16:07:03 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 16:07:12 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute query
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '% AND is_archive = 0' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056)
+	at com.joysistvi.recordingapp.repositories.ArtistRepository.searchArtist(ArtistRepository.java:144)
+	at com.joysistvi.recordingapp.services.ArtistService.searchArtist(ArtistService.java:44)
+	at com.joysistvi.recordingapp.controller.ArtistController.searchArtist(ArtistController.java:38)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.searchArtist(ArtistManagementView.java:79)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.start(ArtistManagementView.java:35)
+	at com.joysistvi.recordingapp.views.DashboardView.start(DashboardView.java:37)
+	at com.joysistvi.recordingapp.views.LoginView.authLogin(LoginView.java:39)
+	at com.joysistvi.recordingapp.views.Route.start(Route.java:27)
+	at com.joysistvi.recordingapp.RecordingApplication.main(RecordingApplication.java:27)
+2026-09-25 16:08:17 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 16:08:17 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 16:08:18 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 16:08:18 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.042s)
+2026-09-25 16:08:18 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 16:08:18 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 16:08:18 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 16:08:18 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 17:32:51 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 17:32:51 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 17:32:52 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 17:32:52 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.040s)
+2026-09-25 17:32:52 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 17:32:52 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 17:32:52 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 17:32:52 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 17:45:48 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 17:45:48 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 17:45:48 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 17:45:48 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.027s)
+2026-09-25 17:45:48 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 17:45:48 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 17:45:48 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 17:45:48 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 17:46:38 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute query
+java.sql.SQLSyntaxErrorException: Unknown column 'is_archived' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1318)
+	at com.joysistvi.recordingapp.repositories.ArtistRepository.getAllArchivedArtists(ArtistRepository.java:208)
+	at com.joysistvi.recordingapp.services.ArtistService.getAllArchivedArtists(ArtistService.java:56)
+	at com.joysistvi.recordingapp.controller.ArtistController.handleViewArchivedArtists(ArtistController.java:42)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.viewAllArchivedArtists(ArtistManagementView.java:197)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.start(ArtistManagementView.java:48)
+	at com.joysistvi.recordingapp.views.DashboardView.start(DashboardView.java:37)
+	at com.joysistvi.recordingapp.views.LoginView.authLogin(LoginView.java:39)
+	at com.joysistvi.recordingapp.views.Route.start(Route.java:27)
+	at com.joysistvi.recordingapp.RecordingApplication.main(RecordingApplication.java:27)
+2026-09-25 17:47:16 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 17:47:16 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 17:47:16 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 17:47:16 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.050s)
+2026-09-25 17:47:16 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 17:47:16 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 17:47:16 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 17:47:16 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 17:47:26 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute query
+java.sql.SQLSyntaxErrorException: Unknown column 'is_archived' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1318)
+	at com.joysistvi.recordingapp.repositories.ArtistRepository.getAllArchivedArtists(ArtistRepository.java:208)
+	at com.joysistvi.recordingapp.services.ArtistService.getAllArchivedArtists(ArtistService.java:56)
+	at com.joysistvi.recordingapp.controller.ArtistController.handleViewArchivedArtists(ArtistController.java:42)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.viewAllArchivedArtists(ArtistManagementView.java:197)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.start(ArtistManagementView.java:48)
+	at com.joysistvi.recordingapp.views.DashboardView.start(DashboardView.java:37)
+	at com.joysistvi.recordingapp.views.LoginView.authLogin(LoginView.java:39)
+	at com.joysistvi.recordingapp.views.Route.start(Route.java:27)
+	at com.joysistvi.recordingapp.RecordingApplication.main(RecordingApplication.java:27)
+2026-09-25 17:47:43 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 17:47:43 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 17:47:43 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 17:47:43 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.027s)
+2026-09-25 17:47:43 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 17:47:43 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 17:47:43 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 17:47:43 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 17:47:55 [main] ERROR c.j.r.repositories.ArtistRepository - Failed to execute query
+java.sql.SQLSyntaxErrorException: Unknown column 'is_archived' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1318)
+	at com.joysistvi.recordingapp.repositories.ArtistRepository.getAllArchivedArtists(ArtistRepository.java:208)
+	at com.joysistvi.recordingapp.services.ArtistService.getAllArchivedArtists(ArtistService.java:56)
+	at com.joysistvi.recordingapp.controller.ArtistController.handleViewArchivedArtists(ArtistController.java:42)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.viewAllArchivedArtists(ArtistManagementView.java:197)
+	at com.joysistvi.recordingapp.views.dashboard.ArtistManagementView.start(ArtistManagementView.java:48)
+	at com.joysistvi.recordingapp.views.DashboardView.start(DashboardView.java:37)
+	at com.joysistvi.recordingapp.views.LoginView.authLogin(LoginView.java:39)
+	at com.joysistvi.recordingapp.views.Route.start(Route.java:27)
+	at com.joysistvi.recordingapp.RecordingApplication.main(RecordingApplication.java:27)
+2026-09-25 17:48:15 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 17:48:16 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 17:48:16 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 17:48:16 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.046s)
+2026-09-25 17:48:16 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 17:48:16 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 17:48:16 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 17:48:16 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-25 20:15:56 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-25 20:15:56 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-25 20:15:56 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-25 20:15:56 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.051s)
+2026-09-25 20:15:56 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 6
+2026-09-25 20:15:56 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-25 20:15:56 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-25 20:15:56 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.

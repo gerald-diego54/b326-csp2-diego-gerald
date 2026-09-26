@@ -42,3 +42,7 @@ build/
 
 # Environment
 .env
+
+# Local Logging Config
+logback.xml
+logback-spring.xml
