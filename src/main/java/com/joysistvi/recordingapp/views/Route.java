@@ -1,6 +1,8 @@
 package com.joysistvi.recordingapp.views;
 
 import com.joysistvi.recordingapp.controller.UserController;
+import com.joysistvi.recordingapp.repositories.UserRepository;
+import com.joysistvi.recordingapp.services.UserService;
 import com.joysistvi.recordingapp.utils.ConsoleUtils;
 import com.joysistvi.recordingapp.views.enums.EAuthScreen;
 
@@ -10,24 +12,37 @@ public class Route {
 
     private final Scanner scanner = new Scanner(System.in);
 
-    UserController userController = new UserController();
+    private final UserRepository userRepository = new UserRepository();
+    private final UserService userService = new UserService(userRepository);
+    private final UserController userController = new UserController(userService);
 
     private final LoginView loginView = new LoginView(userController, scanner);
     private final RegisterView registerView = new RegisterView(userController, scanner);
 
     public void start(){
+        boolean running = true;
 
-        displayMenu();
+        while (running) {
+            displayMenu();
 
-        System.out.print("Enter your choice: ");
-        String choice = scanner.nextLine();
-        EAuthScreen eAuthScreen = selection(choice);
+            System.out.print("Enter your choice: ");
+            String choice = scanner.nextLine();
+            EAuthScreen eAuthScreen = selection(choice);
 
-        switch (eAuthScreen){
-            case LOGIN -> loginView.authLogin();
-            case REGISTER -> registerView.authRegister();
-            case EXIT -> System.out.println("Exiting...");
-            case null -> {}
+            if (eAuthScreen == null) {
+                System.out.println("\n[!] Invalid option. Please try again.");
+                ConsoleUtils.pressEnterToContinue(scanner);
+                continue;
+            }
+
+            switch (eAuthScreen){
+                case LOGIN -> loginView.authLogin();
+                case REGISTER -> registerView.authRegister();
+                case EXIT -> {
+                    System.out.println("Exiting...");
+                    running = false;
+                }
+            }
         }
     }
 
@@ -42,6 +57,7 @@ public class Route {
     }
 
     private void displayMenu() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("RECORDING STUDIO APP");
         System.out.println("1. Login");
         System.out.println("2. Register");

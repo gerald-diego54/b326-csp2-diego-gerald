@@ -1,8 +1,10 @@
 package com.joysistvi.recordingapp.views.dashboard;
 
+import com.joysistvi.recordingapp.controller.AlbumController;
 import com.joysistvi.recordingapp.controller.SongController;
 import com.joysistvi.recordingapp.models.Song;
 import com.joysistvi.recordingapp.utils.ConsoleUtils;
+import com.joysistvi.recordingapp.utils.ValidationUtils;
 import com.joysistvi.recordingapp.views.enums.ESongManagementScreen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,11 +16,13 @@ public class SongManagementView {
 
     private final Scanner scanner;
     private final SongController songController;
+    private final AlbumController albumController;
     private static final Logger logger = LoggerFactory.getLogger(SongManagementView.class);
 
-    public SongManagementView(SongController songController, Scanner scanner) {
+    public SongManagementView(SongController songController, AlbumController albumController, Scanner scanner) {
         this.scanner = scanner;
         this.songController = songController;
+        this.albumController = albumController;
     }
 
     public void start() {
@@ -33,6 +37,7 @@ public class SongManagementView {
 
             if (selected == null) {
                 System.out.println("\n[!] Invalid option. Please enter a valid number (0-5).");
+                ConsoleUtils.pressEnterToContinue(scanner);
                 continue;
             }
 
@@ -51,7 +56,8 @@ public class SongManagementView {
     }
 
     private void printMenu() {
-       ConsoleUtils.printHeader("SONGS MANAGEMENT");
+        ConsoleUtils.clearScreen();
+        ConsoleUtils.printHeader("SONGS MANAGEMENT");
         System.out.println("1. View All Songs");
         System.out.println("2. Search Song");
         System.out.println("3. Add Song");
@@ -73,71 +79,116 @@ public class SongManagementView {
     }
 
     private void viewAllSongs() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("VIEW ALL SONGS");
         List<Song> songs = songController.getAllSongs();
         printSongs(songs);
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void searchSong() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("SEARCH SONGS");
         System.out.print("Enter title: ");
         String key = scanner.nextLine().trim();
         List<Song> songs = songController.searchSong(key);
         printSongs(songs);
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void addSong() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("ADD SONG");
         System.out.print("Enter song title: ");
         String title = scanner.nextLine().trim();
 
-        if (title.isEmpty()) {
-            System.out.println("[!] Song title cannot be empty.");
+        if (!ValidationUtils.isValidLength(title, 255)) {
+            System.out.println("[!] Song title must be 1-255 characters.");
+            ConsoleUtils.pressEnterToContinue(scanner);
             return;
         }
 
-        System.out.print("Enter song length (e.g. 3:45): ");
+        System.out.print("Enter song length (mm:ss, e.g. 3:45): ");
         String length = scanner.nextLine().trim();
+
+        if (!ValidationUtils.isValidSongLength(length)) {
+            System.out.println("[!] Song length must be in mm:ss format, e.g. 3:45.");
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         System.out.print("Enter genre: ");
         String genre = scanner.nextLine().trim();
 
-        int albumId = parseIntegerInput("Enter album ID: ");
-        if (albumId == -1) return;
+        if (!ValidationUtils.isValidLength(genre, 45)) {
+            System.out.println("[!] Genre must be 1-45 characters.");
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
+
+        AlbumManagementView.printAlbums(albumController.getAllAlbums());
+        int albumId = ConsoleUtils.readPositiveInt(scanner, "Enter album ID: ");
+        if (albumId == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         Song song = new Song(null, title, length, genre, albumId);
 
         boolean isSuccess = songController.addSong(song);
         if (isSuccess) {
             System.out.println("\n[✓] Song added successfully!");
-            viewAllSongs();
+            printSongs(songController.getAllSongs());
         } else {
             logger.error("Failed to add song: {}", title);
             System.out.println("[!] Failed to add song. Make sure the album ID exists.");
         }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void updateSong() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("UPDATE SONG");
-        int id = parseIntegerInput("Enter song ID to update: ");
-        if (id == -1) return;
+        printSongs(songController.getAllSongs());
+        int id = ConsoleUtils.readPositiveInt(scanner, "Enter song ID to update: ");
+        if (id == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         System.out.print("Enter new song title: ");
         String title = scanner.nextLine().trim();
 
-        if (title.isEmpty()) {
-            System.out.println("[!] Song title cannot be empty.");
+        if (!ValidationUtils.isValidLength(title, 255)) {
+            System.out.println("[!] Song title must be 1-255 characters.");
+            ConsoleUtils.pressEnterToContinue(scanner);
             return;
         }
 
-        System.out.print("Enter new song length (e.g. 3:45): ");
+        System.out.print("Enter new song length (mm:ss, e.g. 3:45): ");
         String length = scanner.nextLine().trim();
+
+        if (!ValidationUtils.isValidSongLength(length)) {
+            System.out.println("[!] Song length must be in mm:ss format, e.g. 3:45.");
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         System.out.print("Enter new genre: ");
         String genre = scanner.nextLine().trim();
 
-        int albumId = parseIntegerInput("Enter new album ID: ");
-        if (albumId == -1) return;
+        if (!ValidationUtils.isValidLength(genre, 45)) {
+            System.out.println("[!] Genre must be 1-45 characters.");
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
+
+        AlbumManagementView.printAlbums(albumController.getAllAlbums());
+        int albumId = ConsoleUtils.readPositiveInt(scanner, "Enter new album ID: ");
+        if (albumId == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         Song song = new Song(id, title, length, genre, albumId);
         boolean isSuccess = songController.updateSong(song);
@@ -147,17 +198,22 @@ public class SongManagementView {
             logger.error("Failed to update song ID: {}", id);
             System.out.println("[!] Failed to update song or ID not found.");
         }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void deleteSong() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("DELETE SONG");
-        int id = parseIntegerInput("Enter song ID to delete: ");
-        if (id == -1) return;
+        printSongs(songController.getAllSongs());
+        int id = ConsoleUtils.readPositiveInt(scanner, "Enter song ID to delete: ");
+        if (id == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
-        System.out.print("Are you sure you want to delete ID " + id + "? (y/N): ");
-        String confirm = scanner.nextLine().trim().toLowerCase();
+        boolean confirmed = ConsoleUtils.confirm(scanner, "Are you sure you want to delete ID " + id + "? (y/N): ");
 
-        if (confirm.equals("y") || confirm.equals("yes")) {
+        if (confirmed) {
             boolean isSuccess = songController.deleteSong(id);
             if (isSuccess) {
                 System.out.println("\n[✓] Song deleted!");
@@ -168,16 +224,7 @@ public class SongManagementView {
         } else {
             System.out.println("Deletion cancelled.");
         }
-    }
-
-    private int parseIntegerInput(String prompt) {
-        System.out.print(prompt);
-        try {
-            return Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("[!] Invalid number format.");
-            return -1;
-        }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     public static void printSongs(List<Song> songs) {

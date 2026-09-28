@@ -3,12 +3,12 @@ package com.joysistvi.recordingapp.views.dashboard;
 import com.joysistvi.recordingapp.controller.ArtistController;
 import com.joysistvi.recordingapp.models.Artist;
 import com.joysistvi.recordingapp.utils.ConsoleUtils;
+import com.joysistvi.recordingapp.utils.ValidationUtils;
 import com.joysistvi.recordingapp.views.enums.EArtistManagementScreen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class ArtistManagementView {
@@ -34,6 +34,7 @@ public class ArtistManagementView {
 
             if (selected == null) {
                 System.out.println("\n[!] Invalid option. Please enter a valid number (0-8).");
+                ConsoleUtils.pressEnterToContinue(scanner);
                 continue;
             }
 
@@ -55,6 +56,7 @@ public class ArtistManagementView {
     }
 
     private void printMenu() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("ARTIST MANAGEMENT");
         System.out.println("1. View All Artists");
         System.out.println("2. Search Artist");
@@ -83,26 +85,32 @@ public class ArtistManagementView {
     }
 
     private void viewAllArtist() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("VIEW ALL ARTISTS");
         List<Artist> artists = artistController.getAllArtists();
         printArtists(artists);
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void searchArtist() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("SEARCH ARTISTS");
         System.out.print("Enter name: ");
         String key = scanner.nextLine().trim();
         List<Artist> artists = artistController.searchArtist(key);
         printArtists(artists);
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void addArtists() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("ADD ARTIST");
         System.out.print("Enter artist name: ");
         String name = scanner.nextLine().trim();
 
-        if (name.isEmpty()) {
-            System.out.println("[!] Artist name cannot be empty.");
+        if (!ValidationUtils.isValidLength(name, 100)) {
+            System.out.println("[!] Artist name must be 1-100 characters.");
+            ConsoleUtils.pressEnterToContinue(scanner);
             return;
         }
 
@@ -111,23 +119,30 @@ public class ArtistManagementView {
         boolean isSuccess = artistController.addArtist(artist);
         if (isSuccess) {
             System.out.println("\n[✓] Artist added successfully!");
-            viewAllArtist();
+            printArtists(artistController.getAllArtists());
         } else {
             logger.error("Failed to add artist: {}", name);
             System.out.println("[!] Failed to add artist.");
         }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void updateArtist() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("UPDATE ARTIST");
-        int id = parseIntegerInput("Enter artist ID to update: ");
-        if (id == -1) return;
+        printArtists(artistController.getAllArtists());
+        int id = ConsoleUtils.readPositiveInt(scanner, "Enter artist ID to update: ");
+        if (id == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         System.out.print("Enter new artist name: ");
         String newName = scanner.nextLine().trim();
 
-        if (newName.isEmpty()) {
-            System.out.println("[!] Artist name cannot be empty.");
+        if (!ValidationUtils.isValidLength(newName, 100)) {
+            System.out.println("[!] Artist name must be 1-100 characters.");
+            ConsoleUtils.pressEnterToContinue(scanner);
             return;
         }
 
@@ -139,12 +154,18 @@ public class ArtistManagementView {
             logger.error("Failed to update artist ID: {}", id);
             System.out.println("[!] Failed to update artist or ID not found.");
         }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void archiveArtist() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("ARCHIVE ARTIST");
-        int id = parseIntegerInput("Enter artist ID to archive: ");
-        if (id == -1) return;
+        printArtists(artistController.getAllArtists());
+        int id = ConsoleUtils.readPositiveInt(scanner, "Enter artist ID to archive: ");
+        if (id == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         boolean isSuccess = artistController.handleArchiveArtist(id);
         if (isSuccess) {
@@ -153,12 +174,18 @@ public class ArtistManagementView {
             logger.error("Failed to archive artist ID: {}", id);
             System.out.println("[!] Failed to archive artist or ID not found.");
         }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void restoreArtist() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("RESTORE ARTIST");
-        int id = parseIntegerInput("Enter artist ID to restore: ");
-        if (id == -1) return;
+        printArtists(artistController.handleViewArchivedArtists());
+        int id = ConsoleUtils.readPositiveInt(scanner, "Enter artist ID to restore: ");
+        if (id == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
         boolean isSuccess = artistController.handleRestoreArtist(id);
         if (isSuccess) {
@@ -167,17 +194,22 @@ public class ArtistManagementView {
             logger.error("Failed to restore artist ID: {}", id);
             System.out.println("[!] Failed to restore artist or ID not found.");
         }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void deleteArtist() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("DELETE ARTIST");
-        int id = parseIntegerInput("Enter artist ID for hard delete: ");
-        if (id == -1) return;
+        printArtists(artistController.getAllArtists());
+        int id = ConsoleUtils.readPositiveInt(scanner, "Enter artist ID for hard delete: ");
+        if (id == -1) {
+            ConsoleUtils.pressEnterToContinue(scanner);
+            return;
+        }
 
-        System.out.print("Are you sure you want to permanently delete ID " + id + "? (y/N): ");
-        String confirm = scanner.nextLine().trim().toLowerCase();
+        boolean confirmed = ConsoleUtils.confirm(scanner, "Are you sure you want to permanently delete ID " + id + "? (y/N): ");
 
-        if (confirm.equals("y") || confirm.equals("yes")) {
+        if (confirmed) {
             boolean isSuccess = artistController.deleteArtist(id);
             if (isSuccess) {
                 System.out.println("\n[✓] Artist permanently deleted!");
@@ -188,22 +220,15 @@ public class ArtistManagementView {
         } else {
             System.out.println("Deletion cancelled.");
         }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     private void viewAllArchivedArtists() {
+        ConsoleUtils.clearScreen();
         ConsoleUtils.printHeader("ARCHIVED ARTISTS");
         List<Artist> archived = artistController.handleViewArchivedArtists();
         printArtists(archived);
-    }
-
-    private int parseIntegerInput(String prompt) {
-        System.out.print(prompt);
-        try {
-            return Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("[!] Invalid number format.");
-            return -1;
-        }
+        ConsoleUtils.pressEnterToContinue(scanner);
     }
 
     public static void printArtists(List<Artist> artists) {

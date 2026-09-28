@@ -362,3 +362,39 @@ java.sql.SQLSyntaxErrorException: Unknown column 'is_archived' in 'where clause'
 2026-09-25 20:15:56 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
 2026-09-25 20:15:56 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
 2026-09-25 20:15:56 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-28 12:50:08 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-28 12:50:08 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-28 12:50:08 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-28 12:50:08 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.047s)
+2026-09-28 12:50:08 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 7
+2026-09-28 12:50:08 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-28 12:50:08 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-28 12:50:08 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-28 12:50:08 [main] INFO  c.j.r.database.DatabaseSeeder - Sample catalog data already exists. Skipping catalog seed.
+2026-09-28 12:50:36 [main] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-28 12:50:36 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-28 12:50:36 [main] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-28 12:50:37 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.080s)
+2026-09-28 12:50:37 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 7
+2026-09-28 12:50:37 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-28 12:50:37 [main] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-28 12:50:37 [main] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-28 12:50:37 [main] INFO  c.j.r.database.DatabaseSeeder - Sample catalog data already exists. Skipping catalog seed.
+2026-09-28 12:54:49 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.027s)
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 7
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-28 12:54:50 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseSeeder - Sample catalog data already exists. Skipping catalog seed.
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseBootstrap - Database 'db_recording' is ready.
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  org.flywaydb.core.FlywayExecutor - Database: ******** (MySQL 26.7)
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] WARN  o.f.c.i.database.base.Database - Using MySQL 26.7 which is newer than the version Flyway has been verified with. The latest verified version of MySQL is 9.4.
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.027s)
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `db_recording`: 7
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  o.f.core.internal.command.DbMigrate - Schema `db_recording` is up to date. No migration necessary.
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseMigration - Database migration completed.
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseConnection - Database connected successfully.
+2026-09-28 12:55:27 [com.joysistvi.recordingapp.RecordingApplication.main()] INFO  c.j.r.database.DatabaseSeeder - Sample catalog data already exists. Skipping catalog seed.

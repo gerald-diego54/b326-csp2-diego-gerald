@@ -1,6 +1,5 @@
 package com.joysistvi.recordingapp.config;
 
-import com.joysistvi.recordingapp.repositories.ArtistRepository;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,6 @@ public class PropertiesConfig {
     private final Properties properties = new Properties();
     private static final Logger logger = LoggerFactory.getLogger(PropertiesConfig.class);
 
-
     private final Dotenv dotenv = Dotenv.configure() // .env configuration instance
             .ignoreIfMissing() // remove exception when .env is missing
             .load(); // load the contents of .env file
@@ -25,7 +23,10 @@ public class PropertiesConfig {
 
     private void load() {
 
-        try (InputStream input = getClass().getClassLoader().getResourceAsStream("application.properties")) { // load the file application.properties
+        try (InputStream input = getClass().getClassLoader().getResourceAsStream("application.properties")) { // load
+                                                                                                              // the
+                                                                                                              // file
+                                                                                                              // application.properties
 
             if (input == null) {
                 logger.error("application.properties not found");
@@ -51,7 +52,8 @@ public class PropertiesConfig {
 
     private String resolveEnvironmentVariable(String value) {
 
-        if (!value.startsWith("${") || !value.endsWith("}")) return value;
+        if (!value.startsWith("${") || !value.endsWith("}"))
+            return value;
 
         String environmentVariable = value.substring(2, value.length() - 1);
 

@@ -1,4 +1,10 @@
 package com.joysistvi.recordingapp.models;
 
-public record Playlist() {
+import java.time.LocalDateTime;
+
+public record Playlist(
+        Integer id,
+        Integer userId,
+        LocalDateTime createdAt
+) {
 }
