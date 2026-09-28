@@ -46,3 +46,4 @@ build/
 # Local Logging Config
 logback.xml
 logback-spring.xml
+*.log
